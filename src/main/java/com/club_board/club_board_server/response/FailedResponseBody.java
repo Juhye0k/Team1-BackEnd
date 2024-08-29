@@ -13,4 +13,5 @@ public final class FailedResponseBody extends ResponseBody<Void> {
         this.setCode(code);
         this.msg=msg;
     }
+
 }

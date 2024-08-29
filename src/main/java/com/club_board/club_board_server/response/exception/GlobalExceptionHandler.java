@@ -21,6 +21,7 @@ public class GlobalExceptionHandler {
         ExceptionType exceptionType = e.getExceptionType();
         return ResponseEntity.status(exceptionType.getStatus())
                 .body(ResponseUtil.createFailureResponse(exceptionType));
+
     }
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ResponseBody<Void>> methodArgumentNotValidException(MethodArgumentNotValidException e){

@@ -15,6 +15,7 @@ import lombok.Setter;
         @JsonSubTypes.Type(value=SuccessResponseBody.class,name="true"), // SuccessResponseBody: name을 true로 지정
         @JsonSubTypes.Type(value=FailedResponseBody.class,name="false")  // name을 false로 지정
 })
+
 public sealed  abstract class ResponseBody<T> permits SuccessResponseBody, FailedResponseBody{
     private String code;
 }

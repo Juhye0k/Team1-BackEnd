@@ -3,14 +3,13 @@ package com.club_board.club_board_server.response.exception;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatus.*;
+
 
 import static org.springframework.http.HttpStatus.*;
 
 @Getter
 @AllArgsConstructor
 public enum ExceptionType {
-
     //common
     UNEXPECTED_SERVER_ERROR(INTERNAL_SERVER_ERROR,"C001","예상치 못한 에러 발생"),
     BINDING_ERROR(BAD_REQUEST,"C002","바인딩시 에러 발생"),
