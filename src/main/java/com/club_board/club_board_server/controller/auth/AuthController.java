@@ -9,23 +9,22 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RequiredArgsConstructor
 @RestController
+@RequestMapping("/login")
 public class AuthController {
+
     private final AuthService authService;
 
-    @PostMapping("/login")
+    @PostMapping()
     public ResponseEntity<ResponseBody<UserLoginResponse>> login(@Valid @RequestBody UserLoginRequest loginRequest){
-        log.info("로그인 컨트롤러 진입");
         UserLoginResponse userLoginResponse= authService.login(loginRequest);
         return ResponseEntity.ok(ResponseUtil.createSuccessResponse(userLoginResponse));
     }
-    @PostMapping("/login/password")
+    @PostMapping("/password")
     public ResponseEntity<ResponseBody<String>> findPassword(@RequestBody ResetPasswordRequest resetPasswordRequest) {
         authService.forgotPassword(resetPasswordRequest);
         return ResponseEntity.ok(ResponseUtil.createSuccessResponse("임시 비밀번호 생성 완료"));
