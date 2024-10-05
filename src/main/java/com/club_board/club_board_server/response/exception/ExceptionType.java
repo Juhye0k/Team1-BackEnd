@@ -30,7 +30,10 @@ public enum ExceptionType {
     INVALID_LOGIN(HttpStatus.UNAUTHORIZED,"A001","아이디 또는 비밀번호가 일치하지 않습니다."),
     GENERATE_TOKEN_ERROR(INTERNAL_SERVER_ERROR,"A002","토큰 생성 과정 중 오류가 발생했습니다."),
     FIND_PASSWORD_ERROR(BAD_REQUEST,"A003","웹메일 또는 아이디, 비밀번호가 일치하지 않습니다."),
-    TEMPORARY_PASSWORD_ERROR(INTERNAL_SERVER_ERROR,"A004","임시 비밀번호 생성 오류")
+    TEMPORARY_PASSWORD_ERROR(INTERNAL_SERVER_ERROR,"A004","임시 비밀번호 생성 오류"),
+    INVALID_ACCESS_TOKEN(UNAUTHORIZED,"A005","Access Token 만료"),
+    NOT_FOUND_ACCESS_TOKEN(UNAUTHORIZED,"A006","Access Token 이 존재하지 않습니다."),
+    INVALID_REFRESH_TOKEN(UNAUTHORIZED,"A007","Refresh Token 만료"),
     ;
 
     private final HttpStatus status;
